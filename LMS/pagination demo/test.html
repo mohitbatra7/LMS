@@ -1,0 +1,136 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body ng-app="testapp" ng-controller="testController">
+		<div>
+			<div class="page-header" col="row">
+				<div class="col-md-10">
+					<h1>MEAN Test</h1>
+				</div>
+				<div class="col-md-offset-10" id="countdown"></div>
+			</div>
+
+<!--<div ng-repeat=" quest in data">-->
+			<div class="panel panel-default" ng-repeat="ques in data.questions | pagination : currentPage*itemsPerPage | limitTo: itemsPerPage">
+		 		<div class="panel-heading">QUESTION {{ques.Id}}. {{ques.Name}}</div>
+		 		<div class="panel-body">
+
+					<div ng-repeat="option in ques.Options">
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+						    {{option.Name}}
+						  </label>
+						</div>
+					</div>
+					
+					<!--
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+					    A.  JavaScript is a stripped-down version of Java
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+					    B.  JavaScript's syntax is loosely based on Java's
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+					    C.  They both originated on the island of Java
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+					    D.  None of the above
+					  </label>
+					</div>
+				-->
+				
+			  	</div>
+			  	
+			</div>
+			
+		<!--</div>-->
+
+			<nav aria-label="Page navigation">
+  <div class="pagination-div">
+
+        <ul class="pagination">
+              <li ng-class="DisablePrevPage()">
+                <a href ng-click="prevPage()">« Prev</a>
+              </li>
+              <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                <a href="#">{{n+1}}</a>
+              </li>
+              <li ng-class="DisableNextPage()">
+                <a href ng-click="nextPage()">Next »</a>
+                 
+              </li>
+            </ul>
+        
+</div>
+</nav>
+
+		
+			
+			
+			<script src="bower_components/jquery/dist/jquery.min.js"></script>
+			<script src="js/libs/jquery.countdown360.min.js"></script>
+	    	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+			<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	    	<script src="bower_components/angular/angular.min.js"></script>
+	    	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	   <!-- 	<link rel="stylesheet" href="css/custom.css">-->
+	    	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' >
+
+	    	<style>.paginationclass {
+  margin: 15px 28px;
+}
+
+.paginationclass div {
+  border-bottom: 1px solid silver;
+}
+
+.paginationclass span {
+  margin: 0px 15px;
+  display: inline-block;
+  padding: 5px 0px;
+  text-align: left;
+  width: 70px;
+}</style>
+	    	<!--
+	    	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	   		<script src="bower_components/angular-animate/angular-animate.js"></script>
+	    	<script src="bower_components/angular-material/angular-material.js"></script>-->
+			<script src="app.js"></script>  
+			<script src="model.js"></script> 
+			<script src="controller.js"></script>
+
+			<script>
+				var countdown = $("#countdown").countdown360({
+	  			radius: 40,
+	  			seconds: 20,
+	  			label: ['sec', 'secs'],
+	  			fontColor: '#FFFFFF',
+	  			autostart: false,
+	  			onComplete: function() {
+	    		console.log('done');
+	  			}
+				});
+
+				countdown.start();
+            </script>
+		 </div>
+	</body>
+</html>

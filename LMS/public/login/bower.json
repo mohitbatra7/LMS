@@ -1,0 +1,17 @@
+{
+  "name": "login",
+  "authors": [
+    "mohitbatra7 <mohitbatra7@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

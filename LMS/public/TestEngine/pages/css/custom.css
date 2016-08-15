@@ -1,0 +1,28 @@
+body{
+	background-color: #093145;
+	margin: 0 !important;
+    padding: 0 !important;
+}
+
+i{
+	color: #EFD469;
+}
+
+h1{
+   margin: 0 !important;
+   padding: 25px;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+
+}
+
+
+.page-header{
+	 margin: 0 !important;
+	 color:#0D3D56;
+	 text-align: center;
+	 background-color: #B5C689;
+}
+
+.pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;}
+

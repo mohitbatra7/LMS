@@ -1,0 +1,125 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body ng-app="testapp" ng-controller="testController">
+		<div>
+			<div class="page-header" col="row">
+				<div class="col-md-10">
+					<h1>MEAN Test</h1>
+				</div>
+				<div class="col-md-offset-10" id="countdown"></div>
+			</div>
+
+
+			<div class="panel panel-default" ng-init="count=0">
+		 		<div class="panel-heading">QUESTION {{data.questions[count].Id}}. {{data.questions[count].Name}}</div>
+		 		<div class="panel-body">
+
+					<div ng-repeat="option in data.questions[count].Options">
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+						    {{option.Name}}
+						  </label>
+						</div>
+					</div>
+					
+					<!--
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+					    A.  JavaScript is a stripped-down version of Java
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+					    B.  JavaScript's syntax is loosely based on Java's
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+					    C.  They both originated on the island of Java
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+					    D.  None of the above
+					  </label>
+					</div>
+				-->
+				
+			  	</div>
+			</div>
+			
+			<div class="col-md-10 col-sm-12 text-center">
+				<nav>
+				  <ul class="pagination">
+				    <li ng-class="{active:count==0}" ng-click="count=0"><a href="#">1</a></li>
+				    <li ng-class="{active:count==1}" ng-click="count=1"><a href="#">2</a></li>
+				    <li ng-class="{active:count==2}" ng-click="count=2"><a href="#">3</a></li>
+				    <li ng-class="{active:count==3}" ng-click="count=3"><a href="#">4</a></li>
+				    <li ng-class="{active:count==4}" ng-click="count=4"><a href="#">5</a></li>
+				  </ul>
+				</nav>
+			</div>
+
+			<div class="col-md-offset-10 col-sm-offset-9">
+				<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+					<i class="fa fa-arrow-circle-left fa-5x" aria-hidden="true" ng-click="count=count-1" ng-show="count>0"></i>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+					<i class="fa fa-arrow-circle-right fa-5x fa-spin" aria-hidden="true" ng-click="count=count+1" ng-show="count<4"></i>
+				</div>
+			</div>
+			
+
+			<div class="col-md-offset-10 col-sm-offset-9 text-center">
+				<a href="" class="btn btn-primary">REVIEW</a>
+				<a href="" class="btn btn-danger">SUBMIT</a>
+			</div>
+			
+			
+			<script src="bower_components/jquery/dist/jquery.min.js"></script>
+			<script src="js/libs/jquery.countdown360.min.js"></script>
+	    	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+			<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+			<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	    	<script src="bower_components/angular/angular.min.js"></script>
+	    	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	    	<link rel="stylesheet" href="css/custom.css">
+	    	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' >
+
+	    	
+	    	<!--
+	    	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	   		<script src="bower_components/angular-animate/angular-animate.js"></script>
+	    	<script src="bower_components/angular-material/angular-material.js"></script>-->
+			<script src="app.js"></script>  
+			<script src="model.js"></script> 
+			<script src="controller.js"></script>
+
+			<script>
+				var countdown = $("#countdown").countdown360({
+	  			radius: 40,
+	  			seconds: 20,
+	  			label: ['sec', 'secs'],
+	  			fontColor: '#FFFFFF',
+	  			autostart: false,
+	  			onComplete: function() {
+	    		console.log('done');
+	  			}
+				});
+
+				countdown.start();
+            </script>
+		 </div>
+	</body>
+</html>
